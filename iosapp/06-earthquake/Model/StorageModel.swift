@@ -25,7 +25,7 @@ final class StorageModel {
 
     func uploadImage(uid: String, image: UIImage, completion: @escaping (Result<String, Error>) -> Void) {
         guard let data = image.jpegData(compressionQuality: 0.5) else { return }
-        
+
         let storage = Storage.storage()
         let storageRef = storage.reference()
         let millsec = Date().timeIntervalSince1970
@@ -33,7 +33,7 @@ final class StorageModel {
         let imageRef = storageRef.child(imagePath)
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
-        
+
         imageRef.putData(data, metadata: metadata) { _, error in
             guard error == nil else {
                 completion(.failure(error!))
@@ -42,7 +42,7 @@ final class StorageModel {
             completion(.success(imagePath))
         }
     }
-    
+
     func deleteImage(imagePath: String, completion: @escaping (Error?) -> Void) {
         let storage = Storage.storage()
         let storageRef = storage.reference(withPath: imagePath)

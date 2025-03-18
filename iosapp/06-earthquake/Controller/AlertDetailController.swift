@@ -27,7 +27,7 @@ class AlertDetailController: UIViewController, XMLParserDelegate{
         let result = parser.parse()
         print("parse result = \(result)")
     }
-    
+
     @IBAction func closePushed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

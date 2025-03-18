@@ -26,7 +26,7 @@ class IinamiViewController: UIViewController{
         guard let u = webcam_url else { return }
         webView.load(URLRequest(url: u))
     }
-    
+
     @IBAction func iinamiPushed(_ sender: Any) {
         let url = URL(string: "https://www.ii-nami.com/")!
         UIApplication.shared.open(url, options: [:], completionHandler: nil)

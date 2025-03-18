@@ -217,12 +217,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let dst = a.coordinate
         let p_src = MKPlacemark(coordinate: src)
         let p_dst = MKPlacemark(coordinate: dst)
-        
+
         let directionRequest = MKDirections.Request()
         directionRequest.source = MKMapItem(placemark: p_src)
         directionRequest.destination = MKMapItem(placemark: p_dst)
         directionRequest.transportType = .walking
-        
+
         let directions = MKDirections(request: directionRequest)
         directions.calculate { (response, error) in
             guard let directionResponse = response else {
